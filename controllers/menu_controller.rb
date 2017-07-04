@@ -19,6 +19,7 @@ def main_menu
 	puts "3 - Search for an entry"
 	puts "4 - Import entries from a CSV"
 	puts "5 - Exit"
+	puts "6 - View entry number n"
 	print "Enter your selection: "
 
 # Get user input from the command line using gets.
@@ -44,7 +45,10 @@ def main_menu
 	when 5 
 		puts "Good-bye!"
 		exit(0)
-
+	when 6 
+		system "clear"
+		view_entry_number
+		main_menu
 	else 
 		system "clear"
 		puts "Sorry, that is not a valid input"
@@ -66,6 +70,24 @@ def main_menu
  
      system "clear"
      puts "New entry created"
+   end
+
+   def view_entry_number
+   	print "Entry number to view: "
+   	selection = gets.chomp.to_i
+
+   	if selection < @address_book.entries.count 
+   		puts @address_book.entries[selection]
+   		puts "Press enter to return to the main menu"
+   		gets.chomp 
+   		system "clear"
+   	else 
+   		puts "#{selection} is not a valid input"
+   		view_entry_number
+
+   	system "clear"
+   	print "Enter Entry Number: "
+
    end
 	
 
@@ -112,5 +134,5 @@ def entry_submenu(entry)
          entry_submenu(entry)
      end
    end
-
+end
 end
