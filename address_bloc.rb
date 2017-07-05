@@ -7,3 +7,4 @@ puts "Welcome to AddressBloc!"
 
 #display the main menu by calling main_menu
 menu.main_menu
+
