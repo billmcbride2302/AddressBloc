@@ -1,5 +1,4 @@
 require_relative '../models/address_book'
-
 RSpec.describe AddressBook do
    let(:book) { AddressBook.new }
 
@@ -46,6 +45,13 @@ RSpec.describe AddressBook do
        entry_five = book.entries[4]
        check_entry(entry_five, "Sussie", "555-555-2036", "sussie@blocmail.com")
      end
-   end
+   
+   it "imports first entry from second sheet" do 
+    book.import_from_csv("entries_2.csv")
+    second_entry_first = book.entries[0]
+    check_entry(second_entry_first, "Bill", "302-766-1094", "bill@pcrsocial.com")
+    end
+  end
+
  end
  
