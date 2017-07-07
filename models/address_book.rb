@@ -64,9 +64,20 @@ def binary_search(name)
   end
 
   return nil
-
 end
 
+def iterative_search(name)
+  lower = 0 
+  upper = entries.length - 1
 
+  @entries.each do |entry| 
+    if name == entry.name 
+      return entry 
+    end
+    return nil
+  end
+
+
+end
 
 end
